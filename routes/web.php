@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/','index');
+
+Auth::routes();
+
+Route::group(['namespace' => 'Admin'], function() {
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/employees', 'EmployeeController@index')->name('employees');
+
+    Route::any('/add-employee', 'EmployeeController@addEmployee')->name('add-employee');
+
+    Route::any('/edit-employee/{employee}', 'EmployeeController@editEmployee')->name('edit-employee');
+
+    Route::get('/delete-employee/{employee}', 'EmployeeController@deleteEmployee')->name('delete-employee');
+
 });
