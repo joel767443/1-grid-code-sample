@@ -6,7 +6,11 @@ Yoweli Kachala 1-grid code sample
 
 ## About the code sample
 
-There is a landing page where one can register and login - standard laravel code. Also, I added a GitHub link. The code sample has the following.
+There is a landing page where one can register and login - standard laravel code. Also, I added a GitHub link. 
+
+![Image description](https://raw.githubusercontent.com/joel767443/1-grid-code-sample/master/resources/img/face.jpeg)
+
+The code sample has the following.
 
 - Migrations
 - Seeders
@@ -27,7 +31,12 @@ I have used templates for the site and admin layout. I did not code them from sc
 
 ![Image description](https://raw.githubusercontent.com/joel767443/1-grid-code-sample/master/resources/img/face.jpeg)
 
+
 ## Database structure
+Here is the database structure
 
+![Image description](https://raw.githubusercontent.com/joel767443/1-grid-code-sample/master/resources/img/face.jpeg)
 
-  
+## Admin dashboard
+
+![Image description](https://raw.githubusercontent.com/joel767443/1-grid-code-sample/master/resources/img/face.jpeg)
