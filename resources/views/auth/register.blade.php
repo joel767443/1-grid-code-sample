@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="password-confirm" name="password_confirmation" class="form-control" class="form-control{{ $errors->has('password-confirm') ? ' error' : '' }}" placeholder="password confirm" required="">
+                    <input type="password" name="password_confirmation" class="form-control" class="form-control{{ $errors->has('password-confirm') ? ' error' : '' }}" placeholder="password confirm" required="">
                 </div>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">Register</button>

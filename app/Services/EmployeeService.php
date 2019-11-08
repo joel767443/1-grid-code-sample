@@ -41,9 +41,7 @@ class EmployeeService
      */
     public function findAll()
     {
-        return Cache::remember('allEmployees', 600, function () {// remember for 10 minutes
-            return $this->model->all();
-        });
+        return $this->model->all();
     }
 
     /** Count total employees
@@ -95,8 +93,8 @@ class EmployeeService
             EmployeeAddress::create([
                 'employee_id' => $employee->id,
                 'employee_address' => $input['address'],
-                'employee_distance' => null,
             ]);
+
             return true;
 
         } catch (Exception $e) {
