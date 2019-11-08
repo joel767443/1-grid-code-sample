@@ -6,7 +6,7 @@
     </div>
 @endif
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCX5ppLL8PIM3FPVuMEKl_1A_jp7M_ZYA&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNCrQUjVnFmjGVqkgCBAnVUIstJbYGAzk&libraries=places"></script>
 
 <div class="col-lg-12 clearfix">
     <div class="ibox float-e-margins">
