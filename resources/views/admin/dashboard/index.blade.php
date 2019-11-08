@@ -12,7 +12,8 @@
                 <br/><a href="{{ Route('employees') }}" class="btn btn-primary m-t">Employees</a>
             </div>
             <br/>
-            <p> Sample office location {{ $officeLocation }}</div>
+            <p> Sample office location {{ $officeLocation }}</p>
         </div>
     </div>
+
 @endsection
