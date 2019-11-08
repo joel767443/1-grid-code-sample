@@ -17,8 +17,6 @@ The code sample has the following.
 - Services
 - Scheduled commands
 - Caching
-- [sample site](http://1-grid.yoweli-kachala.com).
-
 
 ## NOTE
 I have used templates for the site and admin layout. I did not code them from scratch due to time constraints
