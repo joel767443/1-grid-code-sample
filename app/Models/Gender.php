@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Gender
+ * @package App\Models
+ */
 class Gender extends Model
 {
     /**

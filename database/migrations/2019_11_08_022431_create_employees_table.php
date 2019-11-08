@@ -25,7 +25,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('gender_id')->unsigned();
             $table->integer('employment_type_id')->unsigned();
             $table->integer('user_id')->unsigned();
-
+            $table->softDeletes();
             $table->foreign('designation_id')->references('id')->on('designations');
             $table->foreign('gender_id')->references('id')->on('genders');
             $table->foreign('employment_type_id')->references('id')->on('employment_types');
