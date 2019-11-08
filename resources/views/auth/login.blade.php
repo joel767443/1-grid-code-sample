@@ -22,7 +22,7 @@
                            placeholder="Password" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-                <a href="{{ route('password.request') }}"<small>Forgot password?</small></a>
+                <a href="{{ route('password.request') }}"> <small>Forgot password?</small></a>
             </form>
         </div>
     </div>
