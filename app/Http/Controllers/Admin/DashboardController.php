@@ -25,7 +25,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('admin.dashboard.index', [
-            'totalEmployees' => 10
+            'officeLocation' => env('OFFICE_LOCATION')
         ]);
     }
 }

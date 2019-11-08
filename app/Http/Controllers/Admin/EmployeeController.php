@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
+use App\Models\Designation;
 use App\Models\Employee;
+use App\Models\EmploymentType;
+use App\Models\Gender;
 use App\Services\EmployeeService;
+use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 /**
@@ -29,7 +34,8 @@ class EmployeeController extends Controller
         $this->employeeService = new EmployeeService();
     }
 
-    /**
+    /** Display employee list
+     *
      * @return Factory|View
      */
     public function index()
@@ -42,34 +48,88 @@ class EmployeeController extends Controller
         ]);
     }
 
-    /**
+    /** Display add employee form and accept and save details
+     *
+     * @param EmployeeRequest $request
      * @return Factory|View
      */
-    public function addEmployee()
+    public function addEmployee(EmployeeRequest $request)
     {
-        return view('admin.employees.add');
+        if ($request->isMethod('post')) {
+
+            $isEmployeeCreated = $this->employeeService->create($request);
+
+            if (!$isEmployeeCreated) {
+                return redirect()->back()->withInput()->with('error', 'Failed to create employee');
+            }
+
+            return redirect('employees')->with('message', 'Employee added.');
+        }
+
+        return view('admin.employees.add', $this->employeeViewAttributes());
     }
 
     /**
+     * Display edit employee form and accept changes and save them into the database
+     *
+     * @param EmployeeRequest $request
      * @param Employee $employee
      * @return Factory|View
      */
-    public function editEmployee(Employee $employee)
+    public function editEmployee(EmployeeRequest $request, Employee $employee)
     {
-        return view('admin.employees.edit', ['employee' => $employee]);
+        if ($request->isMethod('post')) {
+            try {
+                $this->employeeService->update($employee, $request->all());
+                return redirect('employees')->with('message', "Employee '$employee->first_name'' has been updated.");
+            } catch (Exception $e) {
+                return redirect()->back()->withInput()->with('error', "Failed to update employee " . $e->getMessage());
+            }
+        }
+
+        return view('admin.employees.edit', $this->employeeViewAttributes($employee));
     }
 
-    /**
+    /** Delete an employee
      * @param Employee $employee
      * @return RedirectResponse
+     * @throws Exception
      */
     public function deleteEmployee(Employee $employee)
     {
-        $deleted = $this->employeeService->delete($employee);
-        if ($deleted) {
+        try {
+            $this->employeeService->delete($employee);
             return redirect('employees')->with('message', 'Employee deleted');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
+    }
 
-        return redirect()->back()->with('error', $deleted->getMessage());
+    /**
+     * Set employee attributes for edit and add form
+     *
+     * @param bool $employee
+     * @return array
+     */
+    private function employeeViewAttributes($employee = false)
+    {
+        $designations = Cache::remember('designations', 600, function () { // cache for 10 minutes
+            return Designation::all();
+        });
+
+        $genders = Cache::remember('genders', 600, function () { // cache for 10 minutes
+            return Gender::all();
+        });
+
+        $employmentTypes = Cache::remember('employmentTypes', 600, function () { // cache for 10 minutes
+            return EmploymentType::all();
+        });
+
+        return [
+            'designations' => $designations,
+            'genders' => $genders,
+            'employee' => $employee ? $employee : new Employee(),
+            'employmentTypes' => $employmentTypes
+        ];
     }
 }

@@ -21,9 +21,9 @@ Route::group(['namespace' => 'Admin'], function() {
 
     Route::get('/employees', 'EmployeeController@index')->name('employees');
 
-    Route::get('/add-employee', 'EmployeeController@addEmployee')->name('add-employee');
+    Route::any('/add-employee', 'EmployeeController@addEmployee')->name('add-employee');
 
-    Route::get('/edit-employee/{employee}', 'EmployeeController@editEmployee')->name('edit-employee');
+    Route::any('/edit-employee/{employee}', 'EmployeeController@editEmployee')->name('edit-employee');
 
     Route::get('/delete-employee/{employee}', 'EmployeeController@deleteEmployee')->name('delete-employee');
 

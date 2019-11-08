@@ -12,6 +12,7 @@
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
 
 </head>
 
@@ -42,8 +43,17 @@
 <!-- Custom and plugin javascript -->
 <script src="{{ asset('js/inspinia.js') }}"></script>
 <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
-
-
+<script src="{{ asset('js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
+    <script>
+        $('.date').datepicker({
+            startView: 1,
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            format: "yyyy-mm-dd"
+        });
+    </script>
 </body>
 
 </html>

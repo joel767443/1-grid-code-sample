@@ -8,7 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class User
+ * @property string name
+ * @property string email
  * @package App\Models
+ * @method static create(array $array)
  */
 class User extends Authenticatable
 {

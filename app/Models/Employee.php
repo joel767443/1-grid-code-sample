@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int employment_type_id
  * @property int user_id
  * @property false|string birth_date
+ * @property mixed id
+ * @method create(array $input)
  */
 class Employee extends Model
 {
@@ -40,7 +42,7 @@ class Employee extends Model
         'gender_id',
         'employment_type_id',
         'user_id',
-        'birth_date'
+        'birth_date',
     ];
 
     /**
@@ -57,5 +59,13 @@ class Employee extends Model
     public function employmentType()
     {
         return $this->belongsTo('App\Models\EmploymentType');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function employeeAddress()
+    {
+        return $this->hasOne('App\Models\EmployeeAddress');
     }
 }

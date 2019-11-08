@@ -5,6 +5,11 @@
 
 @section('content')
     <div class="col-lg-12">
+        @if (Session::has('message'))
+            <div class="alert alert-success">
+                {!! Session::get('message') !!}
+            </div>
+        @endif
         <div class="ibox float-e-margins">
             <div class="ibox-content">
                 <div class="row">
@@ -32,8 +37,8 @@
                             <th>Name</th>
                             <th>Emp. No</th>
                             <th>Department</th>
-                            <th>Hire Date</th>
                             <th>Type</th>
+                            <th>Distance From Work</th>
                             <th>&nbsp;</th>
                         </tr>
                         </thead>
@@ -43,11 +48,11 @@
                                 <td>{{ $employee->first_name . " " . $employee->last_name }}</td>
                                 <td>{{ $employee->employee_number }}</td>
                                 <td>{{ $employee->department }}</td>
-                                <td>{{ $employee->hire_date }}</td>
                                 <td>{{ $employee->employmentType->label }}</td>
+                                <td>{{ isset($employee->employeeAddress->employee_distance) ? $employee->employeeAddress->employee_distance : ''}}</td>
                                 <td>
                                     <a href="{{ Route('edit-employee', $employee->id) }}"><i class="fa fa-edit text-success fa-lg"></i></a>
-                                    <a href="{{ Route('delete-employee', $employee->id) }}"><i class="fa fa-minus text-danger fa-lg"></i></a>
+                                    <a href="{{ Route('delete-employee', $employee->id) }}" onclick="return confirm('Are you sure you want to delete the employee?')"><i class="fa fa-minus text-danger fa-lg"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -58,8 +63,6 @@
 
             </div>
         </div>
-    </div>
-
     </div>
 
 @endsection

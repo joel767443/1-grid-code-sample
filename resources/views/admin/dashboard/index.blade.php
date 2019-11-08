@@ -11,6 +11,8 @@
                 Click on employees to add, edit, search and delete employees
                 <br/><a href="{{ Route('employees') }}" class="btn btn-primary m-t">Employees</a>
             </div>
+            <br/>
+            <p> Sample office location {{ $officeLocation }}</div>
         </div>
     </div>
 @endsection

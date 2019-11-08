@@ -4,7 +4,7 @@
 ])
 
 @section('content')
-    <div class="col-lg-8 col-md-offset-2">
+    <div class="col-lg-10 col-md-offset-1">
         @include('admin.employees.form', [
             'formTitle' => 'Edit Employee',
             'employee' => $employee

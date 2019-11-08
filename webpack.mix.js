@@ -28,14 +28,14 @@ mix.styles([
     'resources/css/admin.css',
 ], 'public/css/admin.css', './').version();
 
-// mix.scripts([
-//     'resources/js/jquery-3.1.1.min.js',
+mix.scripts([
+    // 'resources/js/jquery-3.1.1.min.js',
 //     'resources/js/bootstrap.min.js',
 //     'resources/js/plugins/metisMenu/jquery.metisMenu.js',
 //     'resources/js/plugins/slimscroll/jquery.slimscroll.min.js',
 //     'resources/js/inspinia.js',
 //     'resources/js/plugins/pace/pace.min.js',
-// ], 'public/js/app.js', './').version();
+], 'public/js/app.js', './').version();
 
 
 for (directory in directories) {
