@@ -13,6 +13,10 @@ const mix = require('laravel-mix');
 
 var directories = {
     'resources/img': 'public/img',
+    'resources/css': 'public/css',
+    'resources/js': 'public/js',
+    'resources/font-awesome': 'public/font-awesome',
+    'resources/fonts':'public/fonts',
 };
 
 mix.styles([
@@ -20,7 +24,18 @@ mix.styles([
     'resources/css/site.css',
 ], 'public/css/site.css', './').version();
 
-// mix.scripts([], 'public/js/app.js', './').version();
+mix.styles([
+    'resources/css/admin.css',
+], 'public/css/admin.css', './').version();
+
+// mix.scripts([
+//     'resources/js/jquery-3.1.1.min.js',
+//     'resources/js/bootstrap.min.js',
+//     'resources/js/plugins/metisMenu/jquery.metisMenu.js',
+//     'resources/js/plugins/slimscroll/jquery.slimscroll.min.js',
+//     'resources/js/inspinia.js',
+//     'resources/js/plugins/pace/pace.min.js',
+// ], 'public/js/app.js', './').version();
 
 
 for (directory in directories) {

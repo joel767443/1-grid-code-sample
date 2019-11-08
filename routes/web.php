@@ -15,4 +15,10 @@ Route::view('/','index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['namespace' => 'Admin'], function() {
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/employees', 'EmployeeController@index')->name('employees');
+
+});

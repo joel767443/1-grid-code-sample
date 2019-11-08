@@ -28,7 +28,7 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         @auth
                             <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
                             </li>
                         @else
                             <li class="nav-item active"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
