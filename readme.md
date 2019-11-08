@@ -29,9 +29,6 @@ I have used templates for the site and admin layout. I did not code them from sc
 - When the address is added, there is a background process that runs every 5 minutes and updated the employees travel time from home to work
 - most of the data is cached for about 10 minutes
 
-![Image description](https://raw.githubusercontent.com/joel767443/1-grid-code-sample/master/resources/img/dashboard.png)
-
-
 ## Database structure
 Here is the database structure
 
