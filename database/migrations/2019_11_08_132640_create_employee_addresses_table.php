@@ -17,6 +17,7 @@ class CreateEmployeeAddressesTable extends Migration
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
             $table->string('employee_address');
+            $table->string('employee_distance');
             $table->boolean('processed')->default(false);
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->timestamps();
